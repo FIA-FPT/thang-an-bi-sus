@@ -1,0 +1,30 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 31, in script
+    $ random = glitchtext(50)
+  File "game/script.rpy", line 31, in <module>
+    $ random = glitchtext(50)
+  File "game/glitchtext.rpy", line 9, in glitchtext
+    output += random.choice(nonunicode)
+AttributeError: 'unicode' object has no attribute 'choice'
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 31, in script
+    $ random = glitchtext(50)
+  File "renpy/ast.py", line 928, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "renpy/python.py", line 2245, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script.rpy", line 31, in <module>
+    $ random = glitchtext(50)
+  File "game/glitchtext.rpy", line 9, in glitchtext
+    output += random.choice(nonunicode)
+AttributeError: 'unicode' object has no attribute 'choice'
+
+Windows-10-10.0.19041
+Ren'Py 7.4.11.2266
+AnIsGay 1.0
+Thu Apr 21 10:44:00 2022
