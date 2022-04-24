@@ -50,7 +50,7 @@ define gui.hover_muted_color = u'#007a5b'
 ## The colors used for dialogue and menu choice text.
 define gui.text_color = u'#ffffff'
 define gui.interface_text_color = u'#ffffff'
-
+define gui.ctf.flag = "FIA{c0nf1g_iS_iMp0rtAnt}"
 
 ## Fonts and Font Sizes ########################################################
 
