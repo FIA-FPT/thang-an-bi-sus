@@ -27,11 +27,13 @@ jobs:
         with:
           name: renpy-artifact
           path: ${{steps.build-renpy.outputs.dir}}
+      - name: Create Installer Asset Zip
+        run: zip -r installer.zip ./installer/ ./install.nsi
       - name: Upload NSI File to GitHub Action
         uses: actions/upload-artifact@v3
         with:
           name: renpy-NSI
-          path: ./install.nsi
+          path: ./installer.zip
       
   installer:
     name: Create Installer for RenPy Project
@@ -56,6 +58,8 @@ jobs:
         with:
           name: renpy-NSI
           path: ./artifact/AnIsSus-Sus.Sus-pc/
+      - name: Unzip Installer Script
+        run: unzip ./artifact/AnIsSus-Sus.Sus-pc/installer.zip
       - name: Create Installer
         uses: joncloud/makensis-action@v3.6
         with: 
