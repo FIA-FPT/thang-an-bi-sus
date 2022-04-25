@@ -59,7 +59,7 @@ jobs:
           name: renpy-NSI
           path: ./artifact/AnIsSus-Sus.Sus-pc
       - name: Create Installer
-        run: makensis ./artifact/AnIsSus-Sus.Sus-pc/install.nsi
+        run: makensis ./artifact/AnIsSus-Sus.Sus-pc/install-linux.nsi
       - name: Upload Installer
         uses: actions/upload-artifact@v3
         with: 
