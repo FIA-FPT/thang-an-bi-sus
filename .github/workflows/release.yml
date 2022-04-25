@@ -57,7 +57,7 @@ jobs:
         uses: actions/download-artifact@v3.0.0
         with:
           name: renpy-NSI
-          path: ./artifact/AnIsSus-Sus.Sus-pc/
+          path: ./artifact/AnIsSus-Sus.Sus-pc
       - name: Unzip Installer Script
         run: unzip ./artifact/AnIsSus-Sus.Sus-pc/installer.zip
       - name: Create Installer
