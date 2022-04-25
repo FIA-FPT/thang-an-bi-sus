@@ -32,7 +32,7 @@ jobs:
         with:
           name: renpy-NSI
           path: |
-            ./install.nsi
+            ./install-linux.nsi
             ./installer/
       
   installer:
@@ -61,7 +61,7 @@ jobs:
       - name: Create Installer
         uses: joncloud/makensis-action@v3.6
         with: 
-          script-file: "./artifact/AnIsSus-Sus.Sus-pc/install.nsi"
+          script-file: "./artifact/AnIsSus-Sus.Sus-pc/install-linux.nsi"
       - name: Upload Installer
         uses: actions/upload-artifact@v3
         with: 
