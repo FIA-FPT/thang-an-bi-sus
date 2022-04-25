@@ -2,7 +2,7 @@ name: Auto build package with NSI Installer
 on:
   push:
     branches: 
-      - main
+      - master
 jobs: 
   build:
     name: Build Ren'py project
