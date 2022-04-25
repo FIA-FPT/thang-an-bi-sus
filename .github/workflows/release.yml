@@ -1,9 +1,8 @@
 name: Auto build package with NSI Installer
-name: CD
 on:
   create:
     tags:
-      - *.*.*
+      - v*
 jobs: 
   build:
     name: Build Ren'py project
