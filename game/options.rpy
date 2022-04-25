@@ -25,7 +25,7 @@ define gui.show_name = True
 
 define config.version = "Sus.Sus"
 
-
+define flag = "FIA{You_F0und_m3}"
 ## Text that is placed on the game's about screen. Place the text between the
 ## triple-quotes, and leave a blank line between paragraphs.
 
