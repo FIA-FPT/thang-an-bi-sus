@@ -42,16 +42,16 @@ jobs:
         uses: actions/download-artifact@v3.0.0
         with:
           name: renpy-artifact
-          path: /artifact/
+          path: ./artifact/
       - name: Unzip Artifact file
         run: unzip AnIsSus-Sus.Sus-pc.zip
       - name: Create Installer
         uses: joncloud/makensis-action@v3.6
         with: 
-          script-file: "/artifact/AnIsSus-Sus.Sus-pc/install.nsi"
+          script-file: "./artifact/AnIsSus-Sus.Sus-pc/install.nsi"
       - name: Upload Installer
         uses: actions/upload-artifact@v3
         with: 
           name: final-artifact
-          path: /artifact/AnIsSus-Sus.Sus-pc/${INSTALLER_PATH}
+          path: ./artifact/AnIsSus-Sus.Sus-pc/${INSTALLER_PATH}
         
