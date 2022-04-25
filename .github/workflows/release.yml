@@ -45,7 +45,7 @@ jobs:
       - name: Install required library
         run: |
           sudo apt update
-          sudo apt install -y nsis
+          sudo apt install -y nsis nsis-pluginapi
       - name: Download artifact
         uses: actions/download-artifact@v3.0.0
         with:
