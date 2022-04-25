@@ -1,7 +1,7 @@
 name: Auto build package with NSI Installer
 on:
   push:
-    branches:
+    branches: 
       - main
 jobs: 
   build:
