@@ -93,22 +93,17 @@ Var StartMenuFolder
 
 Section "install" 
     SetOutPath $INSTDIR
-    File "${APP_NAME_IN_INSTALLED_DIR}.exe"
-    File "${APP_NAME_IN_INSTALLED_DIR}.py"
-    File "${APP_NAME_IN_INSTALLED_DIR}.sh"
-    File "${APP_NAME_IN_INSTALLED_DIR}-32.exe"
+    File "installer\logo.ico"
+    File "${FILE_DIR}\${APP_NAME_IN_INSTALLED_DIR}.exe"
+    File "${FILE_DIR}\${APP_NAME_IN_INSTALLED_DIR}.py"
+    File "${FILE_DIR}\${APP_NAME_IN_INSTALLED_DIR}.sh"
+    File "${FILE_DIR}\${APP_NAME_IN_INSTALLED_DIR}-32.exe"
     SetOutPath "$INSTDIR\game"
     File /r "game\*.*"
     SetOutPath "$INSTDIR\lib"
     File /r "lib\*.*"
     SetOutPath "$INSTDIR\renpy"
     File /r "renpy\*.*"
-    SetOutPath $INSTDIR
-    File "installer\logo.ico"
-    File "${APP_NAME_IN_INSTALLED_DIR}.exe"
-    File "${APP_NAME_IN_INSTALLED_DIR}.py"
-    File "${APP_NAME_IN_INSTALLED_DIR}.sh"
-    File "${APP_NAME_IN_INSTALLED_DIR}-32.exe"
 
     writeUninstaller "$INSTDIR\uninstall.exe"
     SetOutPath $INSTDIR
