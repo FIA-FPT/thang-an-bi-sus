@@ -15,7 +15,7 @@ jobs:
         uses: ProjectAliceDev/renpy-build-action@master
         id: build-renpy
         with:
-          sdk-version: '7.4.11.2266'
+          sdk-version: '7.4.11'
           project-dir: '.'
         env: 
           SDL_AUDIODRIVER: dummy
