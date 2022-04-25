@@ -33,7 +33,7 @@ define gui.about = _p("""
     ඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞ
     Licensed by FPT Information Assurance Club
     Technical Branch
-    https://github.com/FIA-FPT
+    https://github.com/FIA-FPT/thang-an-bi-sus
 
     ඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞඞ
 """)

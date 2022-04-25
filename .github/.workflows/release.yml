@@ -1,0 +1,5 @@
+name: Auto build package with NSI Installer
+name: CD
+on:
+  push:
+    branches: [ main ]
