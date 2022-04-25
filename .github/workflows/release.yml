@@ -27,6 +27,12 @@ jobs:
         with:
           name: renpy-artifact
           path: ${{steps.build-renpy.outputs.dir}}
+      - name: Upload NSI File to GitHub Action
+        uses: actions/upload-artifact@v3
+        with:
+          name: renpy-NSI
+          path: ./install.nsi
+      
   installer:
     name: Create Installer for RenPy Project
     runs-on: ubuntu-latest
