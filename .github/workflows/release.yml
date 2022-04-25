@@ -8,7 +8,8 @@ jobs:
     name: Build Ren'py project
     runs-on: ubuntu-latest
     steps: 
-      - uses: actions/checkout@v1
+      - name: Checkout 
+        uses: actions/checkout@v1
 
       - name: Build Ren'Py Project
         uses: ProjectAliceDev/renpy-build-action@master
@@ -21,7 +22,7 @@ jobs:
           SDL_VIDEODRIVER: dummy
 
       - name: Upload artifact to GitHub Action
-      - uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: renpy-artifact
           path: ${{steps.build-renpy.outputs.dir}}
