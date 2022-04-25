@@ -1,5 +1,28 @@
 name: Auto build package with NSI Installer
 name: CD
 on:
-  push:
-    branches: [ main ]
+  create:
+    tags:
+      - *.*.*
+jobs: 
+  build:
+    name: Build Ren'py project
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v1
+
+      - name: Build Ren'Py Project
+        uses: ProjectAliceDev/renpy-build-action@master
+        id: build-renpy
+        with:
+          sdk-version: '7.4.11.2266'
+          project-dir: '.'
+        env: 
+          SDL_AUDIODRIVER: dummy
+          SDL_VIDEODRIVER: dummy
+
+      - name: Upload artifact to GitHub Action
+      - uses: actions/upload-artifact@v3
+        with:
+          name: renpy-artifact
+          path: ${{steps.build-renpy.outputs.dir}}
