@@ -9,10 +9,10 @@
 !define DEVELOPER "baolongv3" #License Holder
   # Files Directory
 !define FILE_DIR "${__FILEDIR__}" #Remember to change it later to environment variable
-!define LOGO_ICON_FILE "${FILE_DIR}/installer/logo.ico"
-!define LICENSE_TEXT_FILE "${FILE_DIR}/installer/LICENSE.txt"
-!define SPLASH_IMG_FILE "${FILE_DIR}/installer/splash.bmp"
-!define HEADER_IMG_FILE "${FILE_DIR}/installer/header.bmp"
+!define LOGO_ICON_FILE "${FILE_DIR}installer/logo.ico"
+!define LICENSE_TEXT_FILE "${FILE_DIR}installer/LICENSE.txt"
+!define SPLASH_IMG_FILE "${FILE_DIR}installer/splash.bmp"
+!define HEADER_IMG_FILE "${FILE_DIR}installer/header.bmp"
   # These three must be integers
 !define VERSION 6.6.6
 !define BUILDNUMBER 1		#Source control revision number
