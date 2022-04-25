@@ -47,7 +47,7 @@ jobs:
       - name: Unzip Artifact file
         run: unzip ./artifact/AnIsSus-Sus.Sus-pc.zip
       - name: Create Installer
-        run: sudo makensis ${GITHUB_WORKSPACE}/artifact/AnIsSus-Sus.Sus-pc/install-linux.nsi
+        run: sudo makensis ./artifact/AnIsSus-Sus.Sus-pc/install-linux.nsi
       - name: Upload Installer
         uses: actions/upload-artifact@v3
         with: 
