@@ -1,15 +1,15 @@
 name: Auto build package with NSI Installer
 on:
-  create:
-    tags:
-      - v*
+  push:
+    branches: 
+      - master
 jobs: 
   build:
     name: Build Ren'py project
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout 
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
 
       - name: Build Ren'Py Project
         uses: ProjectAliceDev/renpy-build-action@master
@@ -30,27 +30,34 @@ jobs:
       
   installer:
     name: Create Installer for RenPy Project
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
     needs: build
     env:
       INSTALLER_PATH: "FPTUFIA AnIsSus Setup.exe"
     steps:
-      - name: Install required library
-        run: |
-          sudo apt update
-          sudo apt install -y nsis nsis-pluginapi
+      - name: Download EnVar plugin for NSIS
+        uses: carlosperate/download-file-action@v1.0.3
+        with:
+          file-url: https://nsis.sourceforge.io/mediawiki/images/7/7f/EnVar_plugin.zip
+          file-name: envar_plugin.zip
+          location: ${{ github.workspace }}
+      - name: Extract EnVar plugin
+        run: 7z x -o"${{ github.workspace }}/NSIS_Plugins" "${{ github.workspace }}/envar_plugin.zip"
       - name: Download artifact
         uses: actions/download-artifact@v3.0.0
         with:
           name: renpy-artifact
-          path: ./artifact/
+          path: ./
       - name: Unzip Artifact file
-        run: unzip ./artifact/AnIsSus-Sus.Sus-pc.zip
-      - name: Create Installer
-        run: sudo makensis ./artifact/AnIsSus-Sus.Sus-pc/install-linux.nsi -V4
+        run: 7z x -o"${{ github.workspace }}/AnIsSus-Sus.Sus-pc" "${{ github.workspace }}/AnIsSus-Sus.Sus-pc.zip"
+      - name: Create nsis installer
+        uses: joncloud/makensis-action@v3.3
+        with:
+          additional-plugin-paths: ${{ github.workspace }}/NSIS_Plugins/Plugins
+          script-file: ${{ github.workspace }}/AnIsSus-Sus.Sus-pc/install.nsi
       - name: Upload Installer
         uses: actions/upload-artifact@v3
         with: 
           name: final-artifact
-          path: ./artifact/AnIsSus-Sus.Sus-pc/${INSTALLER_PATH}
+          path: ${{ github.workspace }}/AnIsSus-Sus.Sus-pc/${INSTALLER_PATH}
         
