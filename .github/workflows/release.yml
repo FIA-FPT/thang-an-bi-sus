@@ -27,13 +27,6 @@ jobs:
         with:
           name: renpy-artifact
           path: ${{steps.build-renpy.outputs.dir}}
-      - name: Upload NSI File to GitHub Action
-        uses: actions/upload-artifact@v3
-        with:
-          name: renpy-NSI
-          path: |
-            ./install*.nsi
-            ./installer/
       
   installer:
     name: Create Installer for RenPy Project
@@ -53,11 +46,6 @@ jobs:
           path: ./artifact/
       - name: Unzip Artifact file
         run: unzip ./artifact/AnIsSus-Sus.Sus-pc.zip
-      - name: Download nsi script
-        uses: actions/download-artifact@v3.0.0
-        with:
-          name: renpy-NSI
-          path: ./artifact/AnIsSus-Sus.Sus-pc
       - name: Create Installer
         run: sudo makensis ${GITHUB_WORKSPACE}/artifact/AnIsSus-Sus.Sus-pc/install-linux.nsi
       - name: Upload Installer
