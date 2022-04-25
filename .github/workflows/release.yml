@@ -17,6 +17,7 @@ jobs:
         with:
           sdk-version: '7.4.11'
           project-dir: '.'
+          package: pc
         env: 
           SDL_AUDIODRIVER: dummy
           SDL_VIDEODRIVER: dummy
@@ -26,3 +27,31 @@ jobs:
         with:
           name: renpy-artifact
           path: ${{steps.build-renpy.outputs.dir}}
+  installer:
+    name: Create Installer for RenPy Project
+    runs-on: ubuntu-latest
+    needs: build
+    env:
+      INSTALLER_PATH: "FPTUFIA AnIsSus Setup.exe"
+    steps:
+      - name: Install required library
+        run: |
+          sudo apt update
+          sudo apt install -y nsis
+      - name: Download artifact
+        uses: actions/download-artifact@v3.0.0
+        with:
+          name: renpy-artifact
+          path: /artifact/
+      - name: Unzip Artifact file
+        run: unzip AnIsSus-Sus.Sus-pc.zip
+      - name: Create Installer
+        uses: joncloud/makensis-action@v3.6
+        with: 
+          script-file: "/artifact/AnIsSus-Sus.Sus-pc/install.nsi"
+      - name: Upload Installer
+        uses: actions/upload-artifact@v3
+        with: 
+          name: final-artifact
+          path: /artifact/AnIsSus-Sus.Sus-pc/${INSTALLER_PATH}
+        
