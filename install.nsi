@@ -52,7 +52,7 @@ Var StartMenuFolder
   UserInfo::GetAccountType
   pop $0
   ${If} $0 != "admin" ;Require admin rights on NT4+
-	messageBox mb_iconstop "FIA{Unintended_Flag_lIKE_Why????}"
+	messageBox mb_iconstop "FIA{Lại_Thêm_Cái_Fake_Flag}"
 	setErrorLevel 740 ;ERROR_ELEVATION_REQUIRED
 	quit
   ${EndIf}

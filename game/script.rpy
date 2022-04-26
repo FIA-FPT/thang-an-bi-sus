@@ -52,12 +52,33 @@ label start:
     "[random]"
     menu:
         "Thôi mệt, đi ngủ":
-            pass
+            jump post_sleep
+        "Học Tiếp":
+            $ valid = getPassAndCheck()
+            if valid:
+                jump post_correct_answer
+            else :
+                jump post_wrong_answer
+        
+    # This ends the game.
+
+    return
+
+
+label post_correct_answer:
+    scene an dau buoi 
+    $ random = glitchtext(100)
+    a "Đúng rồi, Giỏi quá bạn ơiiiii flag là [random]" 
+    $ createFlag()
+    pause 5.0
+    $ restart()
+label post_wrong_answer:
+    scene an dau buoi
+    a "Sai con mẹ nó rồi, Tôi xóa System32 của bạn đây :( "
+    pause 5.0
+    $ restart()
+label post_sleep:
     scene an dau buoi 
     a "Không, tôi restart máy bạn"
     pause 5.0
     $ restart()
-
-    # This ends the game.
-
-    return
